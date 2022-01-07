@@ -22,6 +22,8 @@ Quick start
 
 3. Run the following command:
 
+   Ensure that the templates directory exists in the specified app name.
+
     python manage.py reactify <app_name>
 
 
@@ -31,7 +33,7 @@ Quick start
 
         * Creates barbel and webpack configuration files in the app's root directory.
 
-        * Creates package.json file.
+        * Creates package.json file with the scripts to run React development server.
 
         * Creates a react folder directory with the necessary files and subdirectories where you can add your react component files and redux actions and reducers.
 
@@ -41,10 +43,18 @@ Quick start
 
         * starts the react development server that listens on the changes made to the react components and compile a minimal js file that is rendered to the view.
 
-4. Add the new view function to the views file to render the compiled version of the react app.
+4. cd to the django app directory and run the following command:
+
+    npm run dev
+
+
+5. Add the new view function to the views file to render the compiled version of the react app.
 
     def index(request):
         template_name = '<app_name>/index.html'
 
         return render(request, template_name)
 
+6. Add more React components to the react app's component folder.
+
+7. Enjoy coding!

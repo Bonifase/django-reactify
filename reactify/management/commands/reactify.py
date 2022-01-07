@@ -23,7 +23,6 @@ class Command(TemplateCommand):
                            cp -a {source}/*.js {app_name}/
                            cd {app_name}
                            npm install
-                           npm run dev
                         ''',
                            shell=True,
                            check=True,

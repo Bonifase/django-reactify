@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./react/index.js",
   output: {
     path: path.resolve(__dirname, "./static/reactify"),
     filename: "[name].js",
