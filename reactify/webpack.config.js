@@ -4,7 +4,7 @@ const webpack = require("webpack");
 module.exports = {
   entry: "./react/index.js",
   output: {
-    path: path.resolve(__dirname, "./static/reactify"),
+    path: path.resolve(__dirname, "./static/"),
     filename: "[name].js",
   },
   module: {
