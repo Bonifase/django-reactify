@@ -1,4 +1,6 @@
 import subprocess
+import os
+import sys
 import site
 from django.core.management.templates import TemplateCommand
 
@@ -9,8 +11,15 @@ class Command(TemplateCommand):
     def handle(self, **options):
         app_name = options.pop('name')
         packages = site.getsitepackages()
+        source = None
+
         if len(packages) > 0:
-            source = f'{packages[0]}/reactify'
+            if sys.platform.startswith('win'):
+                source = f'{packages[0]}\reactify'
+            elif sys.platform.startswith('linu'):
+                source = f'{packages[0]}/reactify'
+            else:
+                source = f'{packages[0]}/reactify'
             subprocess.run(f'''
                         ls {source}
                            mkdir {app_name}/react
