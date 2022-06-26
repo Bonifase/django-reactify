@@ -9,4 +9,4 @@ import store from "./redux/store";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = 'XSRF-TOKEN';
 
-ReactDom.render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById("app"));
+ReactDom.render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById("root"));

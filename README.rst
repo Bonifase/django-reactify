@@ -2,9 +2,7 @@
 Django Reactify
 ===============
 
-Django Reactify is an app that allows developers to add and use React components in your Django app without using create-react-app.
-
-Detailed documentation is in the "docs" directory.
+Django Reactify is an app that allows developers to add and use React components in your Django app without using `create-react-app <https://github.com/facebookincubator/create-react-app>`_.
 
 Quick start
 -----------
@@ -27,9 +25,9 @@ Quick start
     python manage.py reactify <app_name>
 
 
-    > Replace the app name with the existing Django app you want to reactify.
+    - Replace the app name with the existing Django app you want to reactify.
 
-    > This command does the following:
+    - This command does the following:
 
         * Creates barbel and webpack configuration files in the app's root directory.
 
@@ -57,4 +55,27 @@ Quick start
 
 6. Add more React components to the react app's component folder.
 
-7. Enjoy coding!
+Managing React Routes
+---------------------
+If you don't configure Django urls to accept the Routes declared in the react, you will encouter 404 error.
+
+To fix this, lets say you have react routes as follows:
+
+    <Switch>
+        <Route exact path="/" component={Main} />
+
+        <Route exact path="/login" component={LoginPage} />
+
+        <Route exact path="/services" component={ServicesPage} />
+
+        <Route exact path="/about" component={AboutPage} />
+
+In the app urls file use `re_path`,
+
+    from django.urls import re_path
+    
+    from .views import index
+
+    urlpatterns = [
+        re_path(r'', index, name="home"),
+        ]
