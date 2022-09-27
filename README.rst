@@ -2,7 +2,7 @@
 Django Reactify
 ===============
 
-Django Reactify is an app that allows developers to add and use React components in your Django app without using `create-react-app <https://github.com/facebookincubator/create-react-app>`_.
+Django Reactify is an app that allows developers to add and use React components in their Django app without using the legacy `create-react-app <https://github.com/facebookincubator/create-react-app>`_.
 
 Quick start
 -----------
