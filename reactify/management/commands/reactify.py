@@ -48,7 +48,6 @@ class Command(TemplateCommand):
     def handle(self, **options):
         app_name = options.pop('name')
         packages = site.getsitepackages()
-        print('packages', packages, sys.platform)
 
         if len(packages) > 0:
             if sys.platform.startswith('win'):
@@ -66,7 +65,7 @@ class Command(TemplateCommand):
 
         try:
             subprocess.run(
-                self.react_directory(source, app_name, platform),
+                self.react_package_directory(source, app_name, platform),
                 shell=True,
                 check=True,
                 executable='/bin/bash'
@@ -75,20 +74,26 @@ class Command(TemplateCommand):
             pass
 
 
-    def react_directory(self, source, app_name, platform):
+    def react_package_directory(self, source, app_name, platform):
         platform_dirs = {
             'MAC': mac_dir(source, app_name),
             'LIN': mac_dir(source, app_name),
             'WIN': windows_dir(source, app_name)
         }
-        return f'''
-            {platform_dirs[platform]}
 
+        return platform_dirs[platform] + self.install_packages()
+
+
+    def install_packages(self, app_name):
+        command_string = f'''
             cd {app_name}
             echo "Installing react packages..."
             npm install
-
-            echo "cd into {app_name} and run:"
+            echo " "
+            echo "cd {app_name} and run:"
             echo "     npm run dev"
+            echo " "
             echo "Happy coding 😄!"
         '''
+
+        return command_string
