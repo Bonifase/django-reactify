@@ -20,10 +20,9 @@ Quick start
 
 3. Run the following command:
 
-   Ensure that the templates directory exists in the specified app name.
-
     python manage.py reactify <app_name>
 
+   Ensure that the templates directory exists in the specified app name.
 
     - Replace the app name with the existing Django app you want to reactify.
 
@@ -73,7 +72,7 @@ To fix this, lets say you have react routes as follows:
 In the app urls file use `re_path`,
 
     from django.urls import re_path
-    
+
     from .views import index
 
     urlpatterns = [
