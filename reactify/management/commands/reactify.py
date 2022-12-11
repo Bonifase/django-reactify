@@ -81,7 +81,7 @@ class Command(TemplateCommand):
             'WIN': windows_dir(source, app_name)
         }
 
-        return platform_dirs[platform] + self.install_packages()
+        return platform_dirs[platform] + self.install_packages(app_name)
 
 
     def install_packages(self, app_name):
@@ -94,6 +94,7 @@ class Command(TemplateCommand):
             echo "     npm run dev"
             echo " "
             echo "Happy coding 😄!"
+            echo " "
         '''
 
         return command_string
