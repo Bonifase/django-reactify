@@ -40,7 +40,7 @@ Quick start
 
         * starts the react development server that listens on the changes made to the react components and compile a minimal js file that is rendered to the view.
 
-4. cd to the django app directory and run the following command:
+4. cd into the django app (app_name) directory and run the following command:
 
     npm run dev
 
